@@ -4,13 +4,20 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/*
+ * Design system: warm minimalism.
+ * A blank canvas with soft, editorial tones.
+ */
+
 @theme inline {
-  --font-sans: "Inter", system-ui, sans-serif;
-  --font-serif: "Source Serif 4", Georgia, serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -27,151 +34,88 @@
   --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
-  --color-success: var(--success);
-  --color-success-foreground: var(--success-foreground);
-  --color-warning: var(--warning);
-  --color-warning-foreground: var(--warning-foreground);
-  --color-gold: var(--gold);
-  --color-gold-foreground: var(--gold-foreground);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --shadow-soft: 0 1px 2px oklch(0.255 0.05 250 / 0.04), 0 4px 16px oklch(0.255 0.05 250 / 0.06);
-  --shadow-elevated: 0 8px 30px oklch(0.255 0.05 250 / 0.12);
+  --color-ring-offset-background: var(--background);
 }
 
 :root {
-  --radius: 0.5rem;
+  --radius: 0.75rem;
 
-  /* Institutional palette */
-  --background: oklch(0.985 0.005 240);
-  --foreground: oklch(0.22 0.04 250);
+  /* Warm paper background, near-black ink */
+  --background: oklch(0.98 0.01 85);
+  --foreground: oklch(0.18 0.02 280);
 
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.22 0.04 250);
+  --card-foreground: oklch(0.18 0.02 280);
 
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.22 0.04 250);
+  --popover-foreground: oklch(0.18 0.02 280);
 
-  /* Deep navy */
-  --primary: oklch(0.275 0.055 250);
-  --primary-foreground: oklch(0.98 0.005 240);
+  /* Soft terracotta as the primary accent */
+  --primary: oklch(0.45 0.12 35);
+  --primary-foreground: oklch(0.98 0.01 85);
 
-  /* Azure secondary */
-  --secondary: oklch(0.94 0.015 240);
-  --secondary-foreground: oklch(0.275 0.055 250);
+  --secondary: oklch(0.94 0.02 85);
+  --secondary-foreground: oklch(0.25 0.03 280);
 
-  --muted: oklch(0.955 0.01 240);
-  --muted-foreground: oklch(0.5 0.025 250);
+  --muted: oklch(0.94 0.02 85);
+  --muted-foreground: oklch(0.55 0.04 280);
 
-  --accent: oklch(0.92 0.025 240);
-  --accent-foreground: oklch(0.275 0.055 250);
+  --accent: oklch(0.94 0.02 85);
+  --accent-foreground: oklch(0.25 0.03 280);
 
-  --destructive: oklch(0.55 0.21 27);
-  --destructive-foreground: oklch(0.98 0.005 240);
+  --destructive: oklch(0.55 0.2 25);
+  --destructive-foreground: oklch(0.98 0.01 85);
 
-  --success: oklch(0.58 0.13 155);
-  --success-foreground: oklch(0.98 0.005 240);
-
-  --warning: oklch(0.75 0.14 75);
-  --warning-foreground: oklch(0.22 0.04 250);
-
-  /* Champagne gold accent */
-  --gold: oklch(0.76 0.095 80);
-  --gold-foreground: oklch(0.22 0.04 250);
-
-  --border: oklch(0.9 0.012 240);
-  --input: oklch(0.92 0.012 240);
-  --ring: oklch(0.4 0.08 250);
-
-  --chart-1: oklch(0.275 0.055 250);
-  --chart-2: oklch(0.45 0.09 250);
-  --chart-3: oklch(0.76 0.095 80);
-  --chart-4: oklch(0.58 0.13 155);
-  --chart-5: oklch(0.55 0.21 27);
-
-  /* Sidebar — deep navy */
-  --sidebar: oklch(0.255 0.05 250);
-  --sidebar-foreground: oklch(0.92 0.01 240);
-  --sidebar-primary: oklch(0.76 0.095 80);
-  --sidebar-primary-foreground: oklch(0.22 0.04 250);
-  --sidebar-accent: oklch(0.32 0.055 250);
-  --sidebar-accent-foreground: oklch(0.98 0.005 240);
-  --sidebar-border: oklch(0.32 0.05 250);
-  --sidebar-ring: oklch(0.76 0.095 80);
+  --border: oklch(0.86 0.02 85);
+  --input: oklch(0.86 0.02 85);
+  --ring: oklch(0.45 0.12 35);
 }
 
 .dark {
-  --background: oklch(0.18 0.03 250);
-  --foreground: oklch(0.96 0.01 240);
-  --card: oklch(0.22 0.04 250);
-  --card-foreground: oklch(0.96 0.01 240);
-  --popover: oklch(0.22 0.04 250);
-  --popover-foreground: oklch(0.96 0.01 240);
-  --primary: oklch(0.76 0.095 80);
-  --primary-foreground: oklch(0.22 0.04 250);
-  --secondary: oklch(0.28 0.04 250);
-  --secondary-foreground: oklch(0.96 0.01 240);
-  --muted: oklch(0.28 0.04 250);
-  --muted-foreground: oklch(0.7 0.02 240);
-  --accent: oklch(0.32 0.05 250);
-  --accent-foreground: oklch(0.96 0.01 240);
-  --destructive: oklch(0.65 0.2 27);
-  --destructive-foreground: oklch(0.98 0.005 240);
-  --success: oklch(0.7 0.13 155);
-  --success-foreground: oklch(0.18 0.03 250);
-  --warning: oklch(0.78 0.14 75);
-  --warning-foreground: oklch(0.18 0.03 250);
-  --gold: oklch(0.78 0.1 80);
-  --gold-foreground: oklch(0.18 0.03 250);
+  --background: oklch(0.16 0.02 280);
+  --foreground: oklch(0.94 0.01 85);
+
+  --card: oklch(0.2 0.03 280);
+  --card-foreground: oklch(0.94 0.01 85);
+
+  --popover: oklch(0.2 0.03 280);
+  --popover-foreground: oklch(0.94 0.01 85);
+
+  --primary: oklch(0.7 0.1 45);
+  --primary-foreground: oklch(0.16 0.02 280);
+
+  --secondary: oklch(0.25 0.03 280);
+  --secondary-foreground: oklch(0.94 0.01 85);
+
+  --muted: oklch(0.25 0.03 280);
+  --muted-foreground: oklch(0.65 0.04 280);
+
+  --accent: oklch(0.25 0.03 280);
+  --accent-foreground: oklch(0.94 0.01 85);
+
+  --destructive: oklch(0.65 0.18 25);
+  --destructive-foreground: oklch(0.98 0.01 85);
+
   --border: oklch(1 0 0 / 12%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.76 0.095 80);
-  --sidebar: oklch(0.15 0.03 250);
-  --sidebar-foreground: oklch(0.92 0.01 240);
-  --sidebar-primary: oklch(0.76 0.095 80);
-  --sidebar-primary-foreground: oklch(0.22 0.04 250);
-  --sidebar-accent: oklch(0.24 0.04 250);
-  --sidebar-accent-foreground: oklch(0.96 0.01 240);
-  --sidebar-border: oklch(0.28 0.04 250);
-  --sidebar-ring: oklch(0.76 0.095 80);
+  --ring: oklch(0.7 0.1 45);
 }
 
 @layer base {
-  * { border-color: var(--color-border); }
-  html, body { max-width: 100%; overflow-x: hidden; }
-  html { -webkit-text-size-adjust: 100%; }
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
-    font-family: var(--font-sans);
-    -webkit-font-smoothing: antialiased;
-    -webkit-tap-highlight-color: transparent;
-    text-size-adjust: 100%;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
-  h1, h2, h3, h4 { font-family: var(--font-serif); letter-spacing: -0.01em; }
-  img, svg, video, canvas { max-width: 100%; height: auto; }
-  button, a { touch-action: manipulation; }
-  input, textarea, select { font-size: 16px; }
-  @media (min-width: 640px) {
-    input, textarea, select { font-size: 0.875rem; }
-  }
-}
-
-@utility no-scrollbar {
-  scrollbar-width: none;
-  &::-webkit-scrollbar { display: none; }
 }
